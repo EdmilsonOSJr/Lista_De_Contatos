@@ -39,7 +39,8 @@ table, th, td {
 
 button{
   height: 40px;
-  width: 100px;
+  position: relative;
+  width: 100%;
   border: 0;  
 }
 
@@ -51,6 +52,7 @@ button{
 #limpar{
   border: 1px solid;
   color: rgb(73, 77, 80);
+  margin-top: 5px;
 }
 
 .remover{
