@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Lista de contatos</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="img/livro-de-contato.png">
+        <link rel="stylesheet" type="text/css" href="./style.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="./script.js"></script>
+<body>
+
+    <div id="principal">
+
+        
+            <div id="formSalvar">
+                <h1>Cadastro</h1>
+                <form id="contato">
+        
+                    <div class="campos" id="divNome">
+                        <label for="nome">Nome:</label>
+                        <input type="text" id="nome">
+                    </div>
+        
+                    <div class="campos" id="divTelefone">
+                        <label for="telefone">Telefone:</label>
+                        <input type="text" id="telefone">
+                    </div>
+                    
+                    <div class="campos" id="divCidade">
+                        <label for="cidade">Cidade:</label>
+                        <input type="text" id="cidade">
+                    </div>
+        
+                    <div class="campos" id="divEstado">
+                        <label for="estado">Estado:</label>
+                        <select id="estado">
+                            <option value="MG">Minas Gerais</option>
+                            <option value="RJ">Rio de Janeiro</option>
+                        </select>
+                    </div>
+        
+                    <div class="campos" id="divEmail">
+                        <label for="email">E-mail:</label>
+                        <input type="text"  id="email">
+                    </div>
+        
+                    <div class="campos" id="divInformacoes">
+                        <label for="informacoes">informações</label>
+                        <input type="text" id="informacoes">
+                    </div>
+        
+                    <div class="campos" id="divCategoria">
+                        <label for="categoria">Categoria:</label>
+                        <select id="categoria">
+                            <option value="cliente">Cliente</option>
+                        </select>
+                    </div>
+              
+                    <div class="campos" id="enviar">
+                        <button type="submit" onclick="addContato()">Enviar</button>
+                    </div>
+        
+                </form>
+        
+            </div>
+        
+            <div id="tableRecupera">
+                <h1>Lista De Contatos</h1>  
+                <table id="contatos">
+                    <tr>
+                        <th>Nome</th>
+                        <th>Telefone</th>
+                        <th>Cidade</th>
+                        <th>Estado</th>
+                        <th>E-mail</th>
+                        <th>Informações</th>
+                        <th>Categoria</th>
+                    </tr>
+        
+                </table>
+        
+            </div>
+    </div>
+    
+</body>
+</html>

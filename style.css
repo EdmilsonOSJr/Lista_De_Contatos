@@ -1,0 +1,62 @@
+
+#formSalvar{
+
+  background-color:  rgb(185, 231, 233);
+  color: aliceblue;
+  padding: 10px;
+  position: relative;
+  border: 1px solid;
+  border-radius: 20px;
+  float: left;
+  margin-left: 100px ;
+  color: black;
+}
+
+input{
+  width: 200px;
+
+}
+
+.campos{
+  padding: 20px;
+  
+}
+
+
+#tableRecupera{
+  margin-bottom: 10%;
+  align-content: center;
+  float: left;
+  margin-left: 10%;
+  color: black;
+}
+
+#principal{
+  
+  background-color: blueviolet;
+  
+}
+
+h1{
+  text-align: center;
+}
+
+#contatos{
+     
+  text-align: center;
+}
+
+table, th, td {
+  border: 1px solid black;
+  padding: 5px;
+}
+
+
+#formSalvar button{
+
+  height: 40px;
+  width: 100px;
+  border: 0;
+
+}
+
