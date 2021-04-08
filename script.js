@@ -48,28 +48,29 @@ function addContato(){
 
     let operacao = $("#enviar").attr("data-operacao");
     
-    let listaContatos = recuperaListaContatos(NOME_CHAAVE), listaNova = [];
+    let listaContatos = recuperaListaContatos(NOME_CHAAVE);
+    let formInfo;
     
     if(operacao == "gravar"){
         
         let data = estaVazio(listaContatos)==true?[]:listaContatos;
         
         let id = idNovoContato(data);
-    
-        let formInfo = construirContato( id,
-                                         document.getElementById("nome").value,
-                                         document.getElementById("telefone").value,
-                                         document.getElementById("cidade").value,
-                                         document.getElementById("estado").value,
-                                         document.getElementById("email").value,
-                                         document.getElementById("informacoes").value,
-                                         document.getElementById("categoria").value,
-                                        );    
         
+        formInfo = construirContato( id,
+        document.getElementById("nome").value,
+        document.getElementById("telefone").value,
+        document.getElementById("cidade").value,
+        document.getElementById("estado").value,
+        document.getElementById("email").value,
+        document.getElementById("informacoes").value,
+        document.getElementById("categoria").value,
+        );    
+
         if(campoEmBranco(formInfo))
             alert("Campo em branco.");
         else{
-
+            
             if(!contatoExistente(formInfo.nome)){
                 data.push(formInfo);
                 gravarContatos(data, NOME_CHAAVE);
@@ -78,25 +79,27 @@ function addContato(){
             else
                 alert("Contato Existente.")
         }
-
-
-
+            
     }
     else{
         
-        let formInfo = construirContato( operacao,
-                                         document.getElementById("nome").value,
+        let contato = recuperaContato(operacao, listaContatos);
+        let listaNova = [];
+
+        formInfo = construirContato( operacao,
+            document.getElementById("nome").value,
                                          document.getElementById("telefone").value,
                                          document.getElementById("cidade").value,
                                          document.getElementById("estado").value,
                                          document.getElementById("email").value,
                                          document.getElementById("informacoes").value,
                                          document.getElementById("categoria").value,
-                                        );
-        
-         if(campoEmBranco(formInfo))
-            alert("Campo em branco.");
-        else{
+                                         );
+                                         
+                                         if(campoEmBranco(formInfo))
+                                         alert("Campo em branco.");
+                                         else{
+
 
             for(let i=0 ; i<listaContatos.length; i++){
                 if(operacao==listaContatos[i].id)
@@ -105,6 +108,15 @@ function addContato(){
                     listaNova.push(listaContatos[i]);
                 
             }
+
+            if(contatoExistente(formInfo.nome)){
+                if(contato.nome !=  document.getElementById("nome").value)
+                    alert("Contato Existente.");
+                else
+                    gravarContatos(listaNova, NOME_CHAAVE);
+
+            }
+            else
             gravarContatos(listaNova, NOME_CHAAVE);
     
         }
@@ -136,9 +148,9 @@ function addLinha(id, nome, telefone, cidade, estado, email, informacoes, catego
 }
 
 
-function estaVazio(obj) {
-    for(var prop in obj) {
-        if(obj.hasOwnProperty(prop))
+function estaVazio(objeto) {
+    for(let propriedade in objeto) {
+        if(objeto.hasOwnProperty(propriedade))
             return false;
     }
 
