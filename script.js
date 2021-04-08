@@ -228,7 +228,7 @@ function limparForm(){
 
 function campoEmBranco(formInfo){
 
-    if(formInfo.nome=="" | formInfo.telefone=="" | formInfo.cidade=="" | formInfo.email=="" | formInfo.informacoes==""){
+    if(formInfo.nome=="" | formInfo.telefone=="" | formInfo.cidade=="" | formInfo.estado=="" | formInfo.email=="" | formInfo.informacoes==""){
         return true;
     }            
     
