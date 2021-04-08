@@ -44,13 +44,22 @@ button{
 }
 
 #enviar{
-  background-color: rgb(102, 221, 230);
-  color: rgb(62, 138, 143);
+  background-color: rgb(147, 226, 90);
+  color: rgb(105, 162, 65);
 }
 
-.clicado{
+#limpar{
+  border: 1px solid;
+  color: rgb(156, 162, 167);
+}
+
+.remover{
   background-color: rgb(233, 118, 118);
   color: rgb(130, 65, 65);
 }
 
+.alterar{
 
+  background-color: rgb(240, 248, 75);
+  color:rgb(169, 175, 52);
+}

@@ -15,7 +15,7 @@
         <div id="cadastroContato" class="shadow">
             <h1 class="mb-4">Cadastro</h1>
 
-            <form class="row ps-5">
+            <form class="row ps-5" id="formContato">
                 
                 <div class="mb-3 col-auto campo" id="divNome">
                     <label for="nome" class="form-label">Nome:</label><br>
@@ -37,8 +37,33 @@
                 <div class="mb-3 col-auto  campo" id="divEstado">
                     <label for="estado " class="form-label">Estado:</label><br>
                     <select id="estado" class="form-select">
+                        <option value="AC">Acre</option>
+                        <option value="AL">Alagoas</option>
+                        <option value="AP">Amapá</option>
+                        <option value="AM">Amazonas</option>
+                        <option value="BA">Bahia</option>
+                        <option value="CE">Ceará</option>
+                        <option value="ES">Espírito Santo</option>
+                        <option value="GO">Goiás</option>
+                        <option value="MA">Maranhão</option>
+                        <option value="MT">Mato Grosso</option>
+                        <option value="MS">Mato Grosso do Sul</option>
                         <option value="MG">Minas Gerais</option>
+                        <option value="PA">Pará</option>
+                        <option value="PB">Paraíba</option>
+                        <option value="PR">Paraná</option>
+                        <option value="PE">Pernambuco</option>
+                        <option value="PI">Piauí</option>
                         <option value="RJ">Rio de Janeiro</option>
+                        <option value="RN">Rio Grande do Norte</option>
+                        <option value="RS">Rio Grande do Sul</option>
+                        <option value="RO">Rondônia</option>
+                        <option value="RR">Roraima</option>
+                        <option value="SC">Santa Catarina</option>
+                        <option value="SP">São Paulo</option>
+                        <option value="SE">Sergipe</option>
+                        <option value="TO">Tocantins</option>
+                        <option value="DF">Distrito Federal</option>
                     </select>
                 </div>
                 
@@ -64,7 +89,8 @@
                 </div>
                 
                 <div class="mb-3 mt-3 campo" id="divEnviar">
-                    <button type="submit" id="enviar" onclick="addContato()">Enviar</button>
+                    <button class="btn me-5" data-operacao ="gravar" type="submit" id="enviar" onclick="addContato()">Gravar</button>
+                    <button class="btn" type="button" id="limpar" onclick="limparForm()">Limpar</button>
                 </div>
     
             </form>
@@ -83,6 +109,8 @@
                     <th>E-mail</th>
                     <th>Informações</th>
                     <th>Categoria</th>
+                    <th>Remover Contato</th>
+                    <th>Alterar Contato</th>
                 </tr>
     
             </table>
