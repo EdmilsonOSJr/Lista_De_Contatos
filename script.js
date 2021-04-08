@@ -1,12 +1,12 @@
-const nomeChave = "formulario";
+const NOME_CHAAVE = "formulario";
 
 $(function($){
 
-    let listaContatos = recuperaListaContatos(nomeChave);
+    let listaContatos = recuperaListaContatos(NOME_CHAAVE);
 
-    if(!isEmpty(listaContatos)){
+    if(!estaVazio(listaContatos)){
         for(let i=0 ; i<listaContatos.length; i++){
-            appendLine(listaContatos[i].id,listaContatos[i].nome,listaContatos[i].telefone,
+            addLinha(listaContatos[i].id,listaContatos[i].nome,listaContatos[i].telefone,
                         listaContatos[i].cidade,listaContatos[i].estado,listaContatos[i].email,
                         listaContatos[i].informacoes,listaContatos[i].categoria);
         }
@@ -32,7 +32,7 @@ $(function($){
 
 function atualizarContato(id){
 
-    let listaContatos = recuperaListaContatos(nomeChave);
+    let listaContatos = recuperaListaContatos(NOME_CHAAVE);
     let contato = recuperaContato(id, listaContatos);
 
     inserirNoForm(contato.nome, contato.telefone, contato.cidade, contato.estado,
@@ -48,11 +48,11 @@ function addContato(){
 
     let operacao = $("#enviar").attr("data-operacao");
     
-    let listaContatos = recuperaListaContatos(nomeChave), listaNova = [];
+    let listaContatos = recuperaListaContatos(NOME_CHAAVE), listaNova = [];
     
     if(operacao == "gravar"){
         
-        let data = isEmpty(listaContatos)==true?[]:listaContatos;
+        let data = estaVazio(listaContatos)==true?[]:listaContatos;
         
         let id = idNovoContato(data);
     
@@ -71,9 +71,9 @@ function addContato(){
         else{
 
             if(!contatoExistente(formInfo.nome)){
-            data.push(formInfo);
-            gravarContatos(data, nomeChave);
-                appendLine(id,formInfo.nome,formInfo.telefone,formInfo.cidade,formInfo.estado,formInfo.email,formInfo.informacoes,formInfo.categoria);
+                data.push(formInfo);
+                gravarContatos(data, NOME_CHAAVE);
+                addLinha(id,formInfo.nome,formInfo.telefone,formInfo.cidade,formInfo.estado,formInfo.email,formInfo.informacoes,formInfo.categoria);
             }
             else
                 alert("Contato Existente.")
@@ -97,6 +97,7 @@ function addContato(){
          if(campoEmBranco(formInfo))
             alert("Campo em branco.");
         else{
+
             for(let i=0 ; i<listaContatos.length; i++){
                 if(operacao==listaContatos[i].id)
                     listaNova.push(formInfo);
@@ -104,8 +105,8 @@ function addContato(){
                     listaNova.push(listaContatos[i]);
                 
             }
+            gravarContatos(listaNova, NOME_CHAAVE);
     
-            gravarContatos(listaNova, nomeChave);
         }
 
         
@@ -114,8 +115,7 @@ function addContato(){
 };    
 
 
-function appendLine(id, nome, telefone, cidade, estado, email, informacoes, categoria){
-    console.log(id);
+function addLinha(id, nome, telefone, cidade, estado, email, informacoes, categoria){
     $("#contatos").append("<tr>"+
                           "<th>"+id+"</th>"+
                           "<td>"+nome+"</td>"+
@@ -136,7 +136,7 @@ function appendLine(id, nome, telefone, cidade, estado, email, informacoes, cate
 }
 
 
-function isEmpty(obj) {
+function estaVazio(obj) {
     for(var prop in obj) {
         if(obj.hasOwnProperty(prop))
             return false;
@@ -158,9 +158,9 @@ function construirContato(id, nome, telefone, cidade, estado, email, info, categ
 }
 
 function contatoExistente(nome){
-    let listaContatos = recuperaListaContatos(nomeChave);
+    let listaContatos = recuperaListaContatos(NOME_CHAAVE);
 
-    if(!isEmpty(listaContatos)){
+    if(!estaVazio(listaContatos)){
         for(let i=0 ; i<listaContatos.length; i++){
             if(listaContatos[i].nome==nome)
                 return true;
@@ -184,14 +184,14 @@ function removerContato(id, elemento){
     
     elemento.closest("tr").remove();
 
-    let listaContatos = recuperaListaContatos(nomeChave), listaNova = [];
+    let listaContatos = recuperaListaContatos(NOME_CHAAVE), listaNova = [];
 
     for(let i=0 ; i<listaContatos.length; i++){
         if(id!=listaContatos[i].id)
             listaNova.push(listaContatos[i]);
     }
 
-    gravarContatos(listaNova, nomeChave);
+    gravarContatos(listaNova, NOME_CHAAVE);
 
 }
 
@@ -205,7 +205,7 @@ function gravarContatos(contatos, keyName){
 }
 
 function idNovoContato(data){
-    return data.length>0?data[data.length-1].id+1:0;
+    return data.length>0?parseInt(data[data.length-1].id)+1:0;
 }
 
 function inserirNoForm(nome, telefone, cidade, estado, email, categoria, info){
