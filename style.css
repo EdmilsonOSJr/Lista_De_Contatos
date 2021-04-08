@@ -24,7 +24,7 @@ h1{
   text-align: center;
   background-color: rgb(102, 221, 230);
   border-radius: 10px;
-  color: rgb(83, 175, 182);
+  color: rgb(51, 108, 112);
   padding-top: 10px;
   padding-bottom: 10px;
 }
@@ -45,21 +45,21 @@ button{
 
 #enviar{
   background-color: rgb(147, 226, 90);
-  color: rgb(105, 162, 65);
+  color: rgb(66, 102, 40);
 }
 
 #limpar{
   border: 1px solid;
-  color: rgb(156, 162, 167);
+  color: rgb(73, 77, 80);
 }
 
 .remover{
   background-color: rgb(233, 118, 118);
-  color: rgb(130, 65, 65);
+  color: rgb(84, 42, 42);
 }
 
 .alterar{
 
   background-color: rgb(240, 248, 75);
-  color:rgb(169, 175, 52);
+  color:rgb(102, 106, 31);
 }

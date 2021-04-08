@@ -66,13 +66,20 @@ function addContato(){
                                          document.getElementById("categoria").value,
                                         );    
         
-        if(!contatoExistente(formInfo.nome)){
+        if(campoEmBranco(formInfo))
+            alert("Campo em branco.");
+        else{
+
+            if(!contatoExistente(formInfo.nome)){
             data.push(formInfo);
             gravarContatos(data, nomeChave);
-            appendLine(id,formInfo.nome,formInfo.telefone,formInfo.cidade,formInfo.estado,formInfo.email,formInfo.informacoes,formInfo.categoria);
+                appendLine(id,formInfo.nome,formInfo.telefone,formInfo.cidade,formInfo.estado,formInfo.email,formInfo.informacoes,formInfo.categoria);
+            }
+            else
+                alert("Contato Existente.")
         }
-        else
-            alert("Contato Existente.")
+
+
 
     }
     else{
@@ -87,16 +94,20 @@ function addContato(){
                                          document.getElementById("categoria").value,
                                         );
         
-
-        for(let i=0 ; i<listaContatos.length; i++){
-            if(operacao==listaContatos[i].id)
-                listaNova.push(formInfo);
-            else
-                listaNova.push(listaContatos[i]);
-            
+         if(campoEmBranco(formInfo))
+            alert("Campo em branco.");
+        else{
+            for(let i=0 ; i<listaContatos.length; i++){
+                if(operacao==listaContatos[i].id)
+                    listaNova.push(formInfo);
+                else
+                    listaNova.push(listaContatos[i]);
+                
+            }
+    
+            gravarContatos(listaNova, nomeChave);
         }
 
-        gravarContatos(listaNova, nomeChave);
         
     }
         
@@ -213,4 +224,13 @@ function limparForm(){
 
     inserirNoForm(emBraco,emBraco,emBraco,document.getElementById("estado")[0].value,emBraco,document.getElementById("categoria")[0].value,emBraco);
 
+}
+
+function campoEmBranco(formInfo){
+
+    if(formInfo.nome=="" | formInfo.telefone=="" | formInfo.cidade=="" | formInfo.email=="" | formInfo.informacoes==""){
+        return true;
+    }            
+    
+    return false;
 }
