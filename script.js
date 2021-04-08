@@ -1,10 +1,10 @@
 $(function($){
 
-    let formInfo = recuperaListaContatos();
+    let listaContatos = recuperaListaContatos();
 
-    if(!isEmpty(formInfo)){
-        for(let i=0 ; i<formInfo.length; i++){
-            appendLine(formInfo[i].nome,formInfo[i].telefone,formInfo[i].cidade,formInfo[i].estado,formInfo[i].email,formInfo[i].informacoes,formInfo[i].categoria);
+    if(!isEmpty(listaContatos)){
+        for(let i=0 ; i<listaContatos.length; i++){
+            appendLine(listaContatos[i].nome,listaContatos[i].telefone,listaContatos[i].cidade,listaContatos[i].estado,listaContatos[i].email,listaContatos[i].informacoes,listaContatos[i].categoria);
         }
     }
 });
@@ -12,7 +12,15 @@ $(function($){
 
 function addContato(){
     
-    let formInfo = {"nome" : document.getElementById("nome").value,
+
+    let listaContatos = recuperaListaContatos();
+    
+    let data = isEmpty(listaContatos)==true?[]:listaContatos;
+    
+    let id = idNovoContato(data);
+
+    let formInfo = {"id" : id,
+                    "nome" : document.getElementById("nome").value,
                     "telefone" : document.getElementById("telefone").value,
                     "cidade": document.getElementById("cidade").value,
                     "estado": document.getElementById("estado").value,
@@ -21,10 +29,6 @@ function addContato(){
                     "categoria": document.getElementById("categoria").value,
                     };
 
-
-    let listaContatos = recuperaListaContatos();
-    
-    let data = isEmpty(listaContatos)==true?[]:listaContatos;
     
     if(!contatoExistente(formInfo.nome)){
         data.push(formInfo);
@@ -80,4 +84,10 @@ function contatoExistente(nome){
 
 function recuperaListaContatos(){
     return JSON.parse(localStorage.getItem("formulario"));
+}
+
+function idNovoContato(data){
+    
+    return data.length>0?data[data.length-1].id+1:0;
+
 }
