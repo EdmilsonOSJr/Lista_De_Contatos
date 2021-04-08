@@ -1,65 +1,56 @@
 
-#formSalvar{
+#cadastroContato{
 
-  background-color:  rgb(185, 231, 233);
-  color: aliceblue;
   padding: 10px;
-  position: relative;
-  border: 1px solid;
-  border-radius: 20px;
-  float: left;
-  margin-left: 100px ;
-  color: black;
-}
-
-input{
-  width: 200px;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;  
 
 }
 
-.campos{
-  padding: 20px;
-  
+
+#estado, #categoria{
+  width: auto;
 }
 
 
-#tableRecupera{
+#tableContatos{
   margin-bottom: 10%;
-  align-content: center;
-  float: left;
-  margin-left: 10%;
-  color: black;
+  margin-top: 5%;
 }
 
-#principal{
-  
-  background-color: blueviolet;
-  
-}
 
 h1{
   text-align: center;
+  background-color: rgb(102, 221, 230);
+  border-radius: 10px;
+  color: rgb(83, 175, 182);
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
-#contatos{
-     
-  text-align: center;
-}
 
 table, th, td {
   border: 1px solid black;
   padding: 5px;
+  text-align: center;
 }
 
 
 button{
   height: 40px;
   width: 100px;
-  border: 0;
-  color: black;
+  border: 0;  
+}
+
+#enviar{
+  background-color: rgb(102, 221, 230);
+  color: rgb(62, 138, 143);
 }
 
 .clicado{
-  background-color: rgb(173, 72, 72);
+  background-color: rgb(233, 118, 118);
+  color: rgb(130, 65, 65);
 }
+
 
