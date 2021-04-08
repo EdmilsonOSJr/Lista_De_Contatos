@@ -52,11 +52,14 @@ table, th, td {
 }
 
 
-#formSalvar button{
-
+button{
   height: 40px;
   width: 100px;
   border: 0;
+  color: black;
+}
 
+.clicado{
+  background-color: rgb(173, 72, 72);
 }
 
